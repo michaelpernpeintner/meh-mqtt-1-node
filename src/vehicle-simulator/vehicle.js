@@ -51,6 +51,8 @@ module.exports = class Vehicle extends MQTTClient {
             }
         }
 
-        helpers.logInfo(`Vehicle ${this.id} moved to ${JSON.stringify(this.position)} in ${interval} seconds.`);
+        this.publish('state', this.position);
+
+        // helpers.logInfo(`Vehicle ${this.id} moved to ${JSON.stringify(this.position)} in ${interval} seconds.`);
     }
 };
