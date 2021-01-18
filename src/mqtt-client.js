@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 const { v4: createId } = require('uuid');
 const random = require('random');
 
-const helpers = require('../helpers');
+const helpers = require('./helpers');
 
 module.exports = class MQTTClient {
     constructor(type, individualSubscriptions, typeSubscriptions, genericSubscriptions) {
@@ -45,7 +45,7 @@ module.exports = class MQTTClient {
     }
 
     toString() {
-        return `${this.type} ${this.id}`;
+        return `${this.type.capitalize()} ${this.id}`;
     }
 
     publish(topic, message = "") {

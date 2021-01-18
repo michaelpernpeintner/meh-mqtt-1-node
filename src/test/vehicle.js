@@ -42,6 +42,10 @@ module.exports = class Vehicle {
         return `Vehicle ${this.id}`;
     }
 
+    description() {
+        return `Vehicle ${this.id} { pos: ${this.position}, speed: ${this.speed}, route: ${this.route}`;
+    }
+
     publish(topic, message = "") {
         try {
             this.client.publish(topic, JSON.stringify(message));
